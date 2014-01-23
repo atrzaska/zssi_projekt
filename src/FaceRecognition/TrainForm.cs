@@ -10,7 +10,7 @@ namespace train
         /// <summary>
         /// image
         /// </summary>
-        public Image<Gray, byte> FaceImage { get; set; }
+        public Image<Gray, byte> image;
 
         /// <summary>
         /// faceRecognizer
@@ -33,7 +33,7 @@ namespace train
         private void btnOk_Click(object sender, System.EventArgs e)
         {
             string name = txtName.Text;
-            faceRecognizer.addFace(name, FaceImage);
+            faceRecognizer.addFace(name, image);
             this.Close();
             this.Dispose();
         }
@@ -45,6 +45,12 @@ namespace train
         {
             this.Close();
             this.Dispose();
+        }
+
+        public void setFaceImage(Image<Gray, byte> image)
+        {
+            this.image = image;
+            this.imgTrain.Image = image;
         }
     }
 }

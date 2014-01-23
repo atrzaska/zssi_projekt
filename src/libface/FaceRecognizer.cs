@@ -59,7 +59,7 @@ namespace libface
         /// <summary>
         /// font used for drawing names
         /// </summary>
-        private MCvFont font = new MCvFont(FONT.CV_FONT_HERSHEY_TRIPLEX, 0.5d, 0.5d);
+        private MCvFont font = new MCvFont(FONT.CV_FONT_HERSHEY_DUPLEX, 0.5d, 0.5d);
 
         /// <summary>
         /// trained images
@@ -123,7 +123,7 @@ namespace libface
                     .Resize(92, 112, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
 
                 // draw rectangle around face
-                CurrentImage.Draw(f.rect, new Bgr(Color.Red), 2);
+                CurrentImage.Draw(f.rect, new Bgr(Color.Red), 1);
 
                 // recognize faces
                 if (trainingImages.ToArray().Length != 0)
@@ -139,7 +139,7 @@ namespace libface
                     String name = recognizer.Recognize(result);
 
                     // draw the label for each face detected and recognized
-                    CurrentImage.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
+                    CurrentImage.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightBlue));
                 }
 
                 // increase detected faces number

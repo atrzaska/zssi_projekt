@@ -53,11 +53,18 @@ namespace train
             // get detected faces
             List<Image<Gray, Byte>> faces = faceRecognizer.getTrainFaces();
 
+            // check faces count
+            if (faces.Count == 0)
+            {
+                MessageBox.Show("Nie wykryto twarzy na zdjęciu");
+                return;
+            }
+
             // show dialog for each face
             foreach (Image<Gray, Byte> face in faces)
             {
                 TrainForm trainForm = new TrainForm(faceRecognizer);
-                trainForm.FaceImage = face;
+                trainForm.setFaceImage(face);
                 trainForm.ShowDialog();
             }
 
