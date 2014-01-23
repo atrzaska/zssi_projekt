@@ -71,17 +71,27 @@ namespace libface
         /// </summary>
         private List<String> trainingNames = new List<String>();
 
+        /// <summary>
+        /// trainingFaceInfo
+        /// </summary>
+        private List<FaceInfo> trainingFaceInfo = new List<FaceInfo>();
+
+        /// <summary>
+        /// trainingFaceInfoDict
+        /// </summary>
+        private Dictionary<String, FaceInfo> trainingFaceInfoDict = new Dictionary<string, FaceInfo>();
+
         #endregion private members
 
         /// <summary>
-        ///  wczytanie zdjec
+        ///  wczytanie zdjec i wczytanie info o osobach
         /// </summary>
         public FaceRecognizer()
         {
             // create regex
             Regex regex = new Regex(@"(\w+) \(\d+\).jpg");
 
-            // iterate files in folder
+            // read face images from folder
             foreach (string filename in Directory.EnumerateFiles("faces", "*.jpg"))
             {
                 // parse label
@@ -97,13 +107,59 @@ namespace libface
                 // increment number of train images
                 numTrainImages++;
             }
+
+            // create records
+            foreach (string name in trainingNames)
+            {
+                // create faceInfo
+                FaceInfo faceInfo = new FaceInfo();
+                faceInfo.Id = name;
+
+                // add record
+                trainingFaceInfoDict[name] = faceInfo;
+                //trainingFaceInfoDict.Add(name, faceInfo);
+            }
+
+            // read info about ppl
+            String text = File.ReadAllText("faces/info.txt");
+
+            // split text to lines
+            String[] lines = text.Split('\n');
+
+            foreach (string line in lines)
+            {
+                // skip empty line
+                if (line.Length == 0) continue;
+
+                // split line
+                String[] values = line.Split(';');
+
+                // get id
+                String name = values[0];
+
+                // get record
+                FaceInfo faceInfo = trainingFaceInfoDict[name];
+
+                // set values
+                faceInfo.FirstName = values[1];
+                faceInfo.LastName = values[2];
+                faceInfo.Age = values[3];
+                faceInfo.Sex = values[4];
+                faceInfo.Glasses = values[5];
+                faceInfo.SkinColor = values[6];
+                faceInfo.Beard = values[7];
+                faceInfo.HairSize = values[8];
+            }
         }
 
         /// <summary>
         /// recognizeFaces
         /// </summary>
-        public int recognizeFaces()
+        public int recognizeFaces(out FaceInfo faceInfo)
         {
+            // init
+            faceInfo = new FaceInfo();
+
             // restore original image
             CurrentImage = _originalImage;
 
@@ -137,6 +193,9 @@ namespace libface
 
                     // get name of the face
                     String name = recognizer.Recognize(result);
+
+                    // get faceInfo
+                    faceInfo = trainingFaceInfoDict[name];
 
                     // draw the label for each face detected and recognized
                     CurrentImage.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightBlue));

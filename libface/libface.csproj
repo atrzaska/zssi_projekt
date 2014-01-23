@@ -39,6 +39,7 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FaceInfo.cs" />
     <Compile Include="FaceRecognizer.cs" />
   </ItemGroup>
   <ItemGroup>

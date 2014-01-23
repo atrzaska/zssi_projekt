@@ -35,14 +35,18 @@ namespace train
             // set the image
             faceRecognizer.CurrentImage = new Image<Bgr, byte>(dlg.FileName);
 
+            FaceInfo faceInfo;
+
             // recognize faces
-            int foundFaces = faceRecognizer.recognizeFaces();
+            int foundFaces = faceRecognizer.recognizeFaces(out faceInfo);
 
             // set the image
             this.imgTrain.Image = faceRecognizer.CurrentImage;
 
             // display number of faces found
             this.lblFoundFaces.Text = foundFaces.ToString();
+
+            this.txtInfo.Text = faceInfo.ToString();
         }
 
         /// <summary>
@@ -69,7 +73,8 @@ namespace train
             }
 
             // recognize faces again
-            faceRecognizer.recognizeFaces();
+            FaceInfo faceInfo;
+            faceRecognizer.recognizeFaces(out faceInfo);
 
             // set the image
             this.imgTrain.Image = faceRecognizer.CurrentImage;

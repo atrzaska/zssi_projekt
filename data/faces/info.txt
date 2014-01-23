@@ -1,0 +1,10 @@
+adrian;Adrian;Kowalski;35;M;nie;bialy;tak;krotkie
+arek;Arek;Kwiatkowski;38;M;nie;bialy;nie;krotkie
+artur;Artur;Boberek;24;M;nie;bialy;nie;krotkie
+bambo;Bambo;Murzynek;43;M;nie;czarny;nie;brak
+jacek;Jacek;Kot;35;M;nie;zolty;tak;krotkie
+krystian;Krystian;Decki;28;M;tak;bialy;nie;krotkie
+leszek;Leszek;Zabiega;33;M;nie;bialy;nie;krotkie
+maciek;Maciek;But;37;M;tak;bialy;nie;krotkie
+mateusz;Mateusz;Ruski;29;M;nie;zolty;nie;krotkie
+michal;Michal;Cielski;45;M;nie;bialy;nie;krotkie

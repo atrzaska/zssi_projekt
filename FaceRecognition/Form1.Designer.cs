@@ -30,10 +30,11 @@
         {
             this.imgTrain = new Emgu.CV.UI.ImageBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             this.lblFoundFaces = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTrain = new System.Windows.Forms.Button();
             this.btnLoadTrainImage = new System.Windows.Forms.Button();
+            this.btnTrain = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgTrain)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -49,16 +50,25 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtInfo);
             this.groupBox1.Controls.Add(this.lblFoundFaces);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnLoadTrainImage);
             this.groupBox1.Controls.Add(this.btnTrain);
             this.groupBox1.Location = new System.Drawing.Point(12, 423);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(616, 76);
+            this.groupBox1.Size = new System.Drawing.Size(616, 118);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Training";
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.Location = new System.Drawing.Point(132, 18);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.Size = new System.Drawing.Size(230, 94);
+            this.txtInfo.TabIndex = 4;
             // 
             // lblFoundFaces
             // 
@@ -79,31 +89,31 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Znalezione twrze:";
             // 
-            // btnTrain
-            // 
-            this.btnTrain.Location = new System.Drawing.Point(368, 47);
-            this.btnTrain.Name = "btnTrain";
-            this.btnTrain.Size = new System.Drawing.Size(242, 23);
-            this.btnTrain.TabIndex = 1;
-            this.btnTrain.Text = "Trenuj";
-            this.btnTrain.UseVisualStyleBackColor = true;
-            this.btnTrain.Click += new System.EventHandler(this.btnTrain_Click);
-            // 
             // btnLoadTrainImage
             // 
             this.btnLoadTrainImage.Location = new System.Drawing.Point(368, 18);
             this.btnLoadTrainImage.Name = "btnLoadTrainImage";
-            this.btnLoadTrainImage.Size = new System.Drawing.Size(242, 23);
+            this.btnLoadTrainImage.Size = new System.Drawing.Size(242, 36);
             this.btnLoadTrainImage.TabIndex = 0;
             this.btnLoadTrainImage.Text = "Wczytaj obraz";
             this.btnLoadTrainImage.UseVisualStyleBackColor = true;
             this.btnLoadTrainImage.Click += new System.EventHandler(this.btnLoadTrainImage_Click);
             // 
+            // btnTrain
+            // 
+            this.btnTrain.Location = new System.Drawing.Point(368, 71);
+            this.btnTrain.Name = "btnTrain";
+            this.btnTrain.Size = new System.Drawing.Size(242, 41);
+            this.btnTrain.TabIndex = 1;
+            this.btnTrain.Text = "Trenuj";
+            this.btnTrain.UseVisualStyleBackColor = true;
+            this.btnTrain.Click += new System.EventHandler(this.btnTrain_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 509);
+            this.ClientSize = new System.Drawing.Size(637, 553);
             this.Controls.Add(this.imgTrain);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -123,6 +133,7 @@
         private System.Windows.Forms.Label lblFoundFaces;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLoadTrainImage;
+        private System.Windows.Forms.TextBox txtInfo;
 
 
     }
