@@ -59,7 +59,7 @@
             this.txtName.Location = new System.Drawing.Point(28, 178);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(163, 20);
-            this.txtName.TabIndex = 13;
+            this.txtName.TabIndex = 1;
             // 
             // btnOk
             // 
