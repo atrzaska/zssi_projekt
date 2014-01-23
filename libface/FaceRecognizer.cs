@@ -111,13 +111,8 @@ namespace libface
             // create records
             foreach (string name in trainingNames)
             {
-                // create faceInfo
-                FaceInfo faceInfo = new FaceInfo();
-                faceInfo.Id = name;
-
                 // add record
-                trainingFaceInfoDict[name] = faceInfo;
-                //trainingFaceInfoDict.Add(name, faceInfo);
+                trainingFaceInfoDict[name] = new FaceInfo(name);
             }
 
             // read info about ppl
@@ -197,6 +192,11 @@ namespace libface
                     // get faceInfo
                     if (name.Length != 0)
                     {
+                        if (!trainingFaceInfoDict.ContainsKey(name))
+                        {
+                            trainingFaceInfoDict[name] = new FaceInfo(name);
+                        }
+
                         faceInfo = trainingFaceInfoDict[name];
                     }
 
