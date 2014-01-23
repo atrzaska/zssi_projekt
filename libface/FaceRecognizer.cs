@@ -121,6 +121,7 @@ namespace libface
             // split text to lines
             String[] lines = text.Split('\n');
 
+            // iterate lines
             foreach (string line in lines)
             {
                 // skip empty line
@@ -131,6 +132,12 @@ namespace libface
 
                 // get id
                 String name = values[0];
+
+                // create key if not exists
+                if (!trainingFaceInfoDict.ContainsKey(name))
+                {
+                    trainingFaceInfoDict[name] = new FaceInfo(name);
+                }
 
                 // get record
                 FaceInfo faceInfo = trainingFaceInfoDict[name];
