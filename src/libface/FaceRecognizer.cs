@@ -59,7 +59,7 @@ namespace libface
         /// <summary>
         /// font used for drawing names
         /// </summary>
-        private MCvFont font = new MCvFont(FONT.CV_FONT_HERSHEY_DUPLEX, 0.5d, 0.5d);
+        private MCvFont font = new MCvFont(FONT.CV_FONT_HERSHEY_DUPLEX, 0.7d, 0.7d);
 
         /// <summary>
         /// trained images
@@ -123,7 +123,7 @@ namespace libface
                     .Resize(92, 112, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
 
                 // draw rectangle around face
-                CurrentImage.Draw(f.rect, new Bgr(Color.Red), 1);
+                CurrentImage.Draw(f.rect, new Bgr(Color.Red), 2);
 
                 // recognize faces
                 if (trainingImages.ToArray().Length != 0)
